@@ -1,0 +1,24 @@
+spring:
+profiles: replicator-config
+source-name: price-master
+source-database-type: mysql
+source-connection-url: jdbc:mysql://localhost:3306/master
+source-table-name: price
+source-username: root
+source-password: adminadmin
+batch-identifier-column: batch_id
+
+target:
+- target-name: price-salve-one
+  target-database-type: mysql
+  target-connection-url: jdbc:mysql://localhost:3306/slaveone
+  target-table-name: price_one
+  target-username: root
+  target-password: adminadmin
+
+- target-name: price-slave-two
+  target-database-type: mysql
+  target-connection-url: jdbc:mysql://localhost:3306/slavetwo
+  target-table-name: price_two
+  target-username: root
+  target-password: adminadmin
